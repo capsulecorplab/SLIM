@@ -2,87 +2,47 @@
 clear all;
 clc;
 
-%% Assign necessary constants and parameters
-% d = input('Enter Aluminum thickness (in meters) = ');
-% m = input('Enter the number of phases = ');
-% Vline = input('Enter the primary line to line voltage = ');
-% V1 = Vline/sqrt(3);
-% f = input('Enter the supply frequency = ');
-% p = input('Enter the number of poles = ');
-% q1=input('Enter the number of slots per pole per phase= ');
-% Srated = input('Enter the rated slip = ');
-% Ws = input('Enter the width of the stator = ');
+%% Assign Design parameters
 
-% % Data from the PCP design procedure
-% Fsprime = input('Enter the target thrust = ');
-% Vr= input('Enter rated rotor velocity = ');       % changed Vcrated to Vr
+tableno = 44;
 
-% d = 0.0105          % Aluminum thickness (m)
-% m = 3               % number of phases
-% Vline = 75          % primary line to line voltage (V)
-% V1 = Vline/sqrt(3)  % 
-% f = 400             % supply frequency (Hz)
-% p = 6               % number of poles
-% q1 = 2              % number of slots per pole per phase
-% Srated = 0.05       % rated slip
-% Ws = 0.038          % width of the stator (m)
-% Fsprime = 800       % target thrust (N)
-% Vr = 120       % rated rotor velocity (m/s)
-
-% % Values as per Table 4-2
-% d = 0.003           % Aluminum thickness (m)
-% m = 3               % Number of phases
-% Vline = 480         % Primary line to line voltage (V)
-% V1 = Vline/sqrt(3) 	% 
-% f = 60              % Supply frequency (Hz)
-% p = 4               % Number of poles
-% q1 = 1              % Number of slots per pole per phase
-% Srated = 0.05       % Rated slip
-% Ws = 3.1416         % Width of the stator (m)
-% Fsprime = 8171      % Target thrust (N)
-% Vr = 15.5      % Rated rotor velocity (m/s)
-
-%% Values as per Table 4-8: SLIM at 10% slip and target thrust of 8611 N
-
-designno = 1;
-
-switch designno
+switch tableno
     
-    case 1 % Design case 1
-        
-        % Assign necessary constants and parameters
-        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
-        rhow = 19.27*10^-9  % Copper volume resistivity
-        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
-        btmax = 1.6         % Maximum allowable flux density in tooth (T)
-        bymax = 1.3         % Maximum allowable flux density in yoke (T)
-%         bymax = 1.9         % Maximum allowable flux density in yoke (T)
-        J1 = 6*10^6      % Stator current density (A/m^2)
-%         J1 = 2.91*10^6      % Stator current density (A/m^2)
+    case 44 % Table 4-4 Design Parameters
         
         d = 0.003           % Aluminum thickness (m)
         m = 3               % Number of phases	**GOOD**
         Vline = 480         % Primary line to line voltage (V)
-        V1 = Vline/sqrt(3) 	% 
         f = 60              % Supply frequency (Hz)
         p = 4               % Number of poles
         q1 = 1              % Number of slots per pole per phase	**GOOD**
         Ws = 3.1416         % Width of the stator (m)	**GOOD**
         
-        Srated = 0.10       % Rated slip	**GOOD**
-        Fsprime = 8611      % Target thrust (N)	**GOOD**
+        Srated = 0.10       % Rated slip
+        Fsprime = 8161      % Target thrust (N)
         Vr = 15.5      % Rated rotor velocity (m/s)
         
-        % Data from the PCP design procedure
-        Vs = Vr/(1 - Srated)    % Sychronous velocity (m/s)	**GOOD**
-        tau = Vs/(2*f)              % Pole pitch	**GOOD**
-        lambda = tau/(m*q1)         % Slot pitch    **GOOD**
-        Ls = p*tau                  % Stator Length	**GOOD**
         
-    case 2
-
+    case 45
+        
 end
 
+%% ElectroMagnetic constants
+mu0 = 4*pi*10^-7;   % Permeability of free-space    **GOOD**
+rhow = 19.27*10^-9; % Copper volume resistivity
+rhor = 28.85*10^-9; % Capsule conductor volume resistivity
+btmax = 1.6;        % Maximum allowable flux density in tooth (T)
+bymax = 1.3;        % Maximum allowable flux density in yoke (T)
+J1 = 6*10^6;          % Stator current density (A/m^2)
+
+%% Simulation Calcs
+
+% Data from the PCP design procedure
+V1 = Vline/sqrt(3);
+Vs = Vr/(1 - Srated);       % Sychronous velocity (m/s)	**GOOD**
+tau = Vs/(2*f);             % Pole pitch	**GOOD**
+lambda = tau/(m*q1);        % Slot pitch    **GOOD**
+Ls = p*tau;                 % Stator Length	**GOOD**
 
 for i = 1:30
     
@@ -148,7 +108,7 @@ end
 Nc = k;         % Number of turns per slot
 N1 = p*q1*Nc;   % Number of turns per phase
 Fs = Fs(k);     % Estimated thrust based on Nc (N)
-I1 = I1(k);     % 
+I1 = I1(k);     % Estimate current draw (A)
 
 ncos1 = ncos1(k);
 
@@ -163,10 +123,10 @@ A = [   3	5.8;
 
 gauge = 0;
 
-% while (gauge < 8)
+while (gauge < 8)
     
-%     gauge = gauge + 1;
-    gauge = 5
+    gauge = gauge + 1;
+%     gauge = 5
     pw = 0;
 %     r = 0;    % Unused variable
     wt = 1;
@@ -174,7 +134,7 @@ gauge = 0;
 %     g = 0;    % Unused variable
 %     r = 0;    % redundant
     
-%     while (wt - wtmin) > 0.0152
+    while (wt - wtmin) > 0.0152
         
 %         r = r + 1;    % Unused variable
 %         g = g + 1;    % Unused variable
@@ -212,7 +172,7 @@ gauge = 0;
         I2 = j*I1*Xm/(R2/Srated + j*Xm);
         Im = I1-I2;
         wtmin = 2*sqrt(2)*m*kw*N1*abs(Im)*mu0*lambda/(pi*p*ge*btmax);
-%     end
+    end
     
     hy = 4*sqrt(2)*m*kw*N1*abs(Im)*mu0*Ls/(pi*pi*p*p*ge*bymax);
     para_wires(gauge) = pw;
@@ -235,7 +195,7 @@ gauge = 0;
     difference(gauge) = final_thrust(gauge) - Fsprime;
     diffmin(gauge) = min(abs(difference));
     
-% end
+end
 
 kk = min(diffmin);
 jj = 1;
