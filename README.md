@@ -3,9 +3,9 @@
 MATLAB script for magnetic levitation analysis using Single-sided Linear Induction Motor for rLoop rPod Hyperloop pod design
 
 ## Acknowledgements
-Simulation constraints and parameters used for rPod use case and analysis, developed by Keith Stormo (stormoconsulting@moscow.com)
+Simulation constraints and parameters used for rPod use case and analysis, designed by Keith Stormo (stormoconsulting@moscow.com)
 
-Thesis paper author and source code originator, credits to Sarveswara Prasad Bhamidi
+Thesis paper author and source code originator, Sarveswara Prasad Bhamidi
 https://mospace.umsystem.edu/xmlui/bitstream/handle/10355/4308/research.pdf
 
 ## Getting Started
