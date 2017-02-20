@@ -10,55 +10,103 @@ switch tableno
     
     case 0 % Keith's Design Parameters
         
-        d = 0.003           % Aluminum thickness (m)
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.0105          % Rotor outer thickness (m)
         m = 3               % Number of phases	**GOOD**
-        Vline = 480         % Primary line to line voltage (V)
+        Vline = 75          % RMS line-to-line voltage (V)
+        f = 60              % Supply frequency (Hz)
+        p = 6               % Number of poles
+        q1 = 2              % Number of slots per pole per phase	**GOOD**
+        Ws = 0.038          % Width of the stator (m)	**GOOD**
+        gm = 0.01           % Physical air gap (m)
+        
+        Srated = 0.05       % Rated slip
+        Fsprime = 800       % Target thrust (N)
+        Vr = 120            % Rated rotor velocity (m/s)
+        
+    case 42 % Table 4-2 Design Parameters
+        
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.003           % Aluminum Rotor outer thickness (m)
+        m = 3               % Number of phases	**GOOD**
+        Vline = 480         % RMS line-to-line voltage (V)
         f = 60              % Supply frequency (Hz)
         p = 4               % Number of poles
         q1 = 1              % Number of slots per pole per phase	**GOOD**
-        Ws = 3.1416         % Width of the stator (m)	**GOOD**
+        Ws = 3.14           % Width of the stator (m)	**GOOD**
+        gm = 0.01           % Physical air gap (m)
         
         Srated = 0.10       % Rated slip
+%         Srated = 0.05       % Rated slip
         Fsprime = 8161      % Target thrust (N)
-        Vr = 15.5      % Rated rotor velocity (m/s)
+%         Fsprime = 8177      % Target thrust (N)
+        Vr = 15.5           % Rated rotor velocity (m/s)
         
     case 44 % Table 4-4 Design Parameters
         
-        d = 0.003           % Aluminum thickness (m)
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.003           % Aluminum Rotor outer thickness (m)
         m = 3               % Number of phases	**GOOD**
-        Vline = 480         % Primary line to line voltage (V)
+        Vline = 480         % RMS line-to-line voltage (V)
         f = 60              % Supply frequency (Hz)
         p = 4               % Number of poles
         q1 = 1              % Number of slots per pole per phase	**GOOD**
         Ws = 3.1416         % Width of the stator (m)	**GOOD**
+        gm = 0.01           % Physical air gap (m)
         
         Srated = 0.10       % Rated slip
         Fsprime = 8161      % Target thrust (N)
-        Vr = 15.5      % Rated rotor velocity (m/s)
+        Vr = 15.5           % Rated rotor velocity (m/s) 
         
     case 45
         
-        d = 0.003           % Aluminum thickness (m)
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.003           % Aluminum Rotor outer thickness (m)
         m = 3               % Number of phases	**GOOD**
-        Vline = 480         % Primary line to line voltage (V)
+        Vline = 480         % RMS line-to-line voltage (V)
         f = 60              % Supply frequency (Hz)
         p = 4               % Number of poles
         q1 = 1              % Number of slots per pole per phase	**GOOD**
         Ws = 3.1416         % Width of the stator (m)	**GOOD**
+        gm = 0.01           % Physical air gap (m)
         
         Srated = 0.10       % Rated slip
-        Fsprime = 8161      % Target thrust (N)
-        Vr = 15.5      % Rated rotor velocity (m/s)
+        Fsprime = 8171      % Target thrust (N)
+        Vr = 15.5           % Rated rotor velocity (m/s) 
         
 end
-
-%% ElectroMagnetic constants
-mu0 = 4*pi*10^-7;   % Permeability of free-space    **GOOD**
-rhow = 19.27*10^-9; % Copper volume resistivity
-rhor = 28.85*10^-9; % Capsule conductor volume resistivity
-btmax = 1.6;        % Maximum allowable flux density in tooth (T)
-bymax = 1.3;        % Maximum allowable flux density in yoke (T)
-J1 = 6*10^6;          % Stator current density (A/m^2)
 
 %% Simulation Calcs
 
@@ -83,7 +131,6 @@ for i = 1:30
         ws = lambda/2;
         wt = ws;
         hs = As/ws;
-        gm = 0.01;      % Physical air gap
         go = gm + d;
         gamma = (4/pi)*(((ws/(2*go))*atan(ws/(2*go))) - log(sqrt(1 + ((ws/(2*go))^2))));
         kc = lambda/(lambda - gamma*go);
