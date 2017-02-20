@@ -12,6 +12,7 @@ tableno = 54;
 Change 'tableno' to suit the corresponding design case, e.g., a 'tableno' of 54 corresponds to Table 5-4 in the original thesis doc.
 
 ## Acknowledgements
+
 Simulation constraints and parameters used for rPod use case and analysis, designed by Keith Stormo (stormoconsulting@moscow.com)
 
 Thesis paper author and source code originator, Sarveswara Prasad Bhamidi
