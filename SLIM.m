@@ -4,10 +4,24 @@ clc;
 
 %% Assign Design parameters
 
-tableno = 44;
+tableno = 0;
 
 switch tableno
     
+    case 0 % Keith's Design Parameters
+        
+        d = 0.003           % Aluminum thickness (m)
+        m = 3               % Number of phases	**GOOD**
+        Vline = 480         % Primary line to line voltage (V)
+        f = 60              % Supply frequency (Hz)
+        p = 4               % Number of poles
+        q1 = 1              % Number of slots per pole per phase	**GOOD**
+        Ws = 3.1416         % Width of the stator (m)	**GOOD**
+        
+        Srated = 0.10       % Rated slip
+        Fsprime = 8161      % Target thrust (N)
+        Vr = 15.5      % Rated rotor velocity (m/s)
+        
     case 44 % Table 4-4 Design Parameters
         
         d = 0.003           % Aluminum thickness (m)
@@ -22,8 +36,19 @@ switch tableno
         Fsprime = 8161      % Target thrust (N)
         Vr = 15.5      % Rated rotor velocity (m/s)
         
-        
     case 45
+        
+        d = 0.003           % Aluminum thickness (m)
+        m = 3               % Number of phases	**GOOD**
+        Vline = 480         % Primary line to line voltage (V)
+        f = 60              % Supply frequency (Hz)
+        p = 4               % Number of poles
+        q1 = 1              % Number of slots per pole per phase	**GOOD**
+        Ws = 3.1416         % Width of the stator (m)	**GOOD**
+        
+        Srated = 0.10       % Rated slip
+        Fsprime = 8161      % Target thrust (N)
+        Vr = 15.5      % Rated rotor velocity (m/s)
         
 end
 
