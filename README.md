@@ -1,6 +1,6 @@
 # rLoop-numsim-SLIM
 
-MATLAB script for magnetic levitation analysis using Single-sided Linear Induction Motor for rLoop rPod Hyperloop pod design
+MATLAB script for Single-sided Linear Induction Motor for rLoop rPod Hyperloop pod design
 
 ## Acknowledgements
 Simulation constraints and parameters used for rPod use case and analysis, designed by Keith Stormo (stormoconsulting@moscow.com)
