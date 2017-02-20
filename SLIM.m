@@ -2,9 +2,14 @@
 clear all;
 clc;
 
+%% Variable names changed (for consistency with thesis paper)
+% 'Vcrated' changed to 'Vr' - Rated rotor velocity (m/s)
+% 'pw' changed to 'Np' - No. of parallel wires
+% 'wire_d' changed to 'Dw' - Diameter of selected copper wire (mm)
+
 %% Assign Design parameters
 
-tableno = 0;
+tableno = 54;
 
 switch tableno
     
@@ -82,7 +87,7 @@ switch tableno
         Fsprime = 8161      % Target thrust (N)
         Vr = 15.5           % Rated rotor velocity (m/s) 
         
-    case 45
+    case 45 % Table 4-5 Design Parameters
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
@@ -106,12 +111,38 @@ switch tableno
         Fsprime = 8171      % Target thrust (N)
         Vr = 15.5           % Rated rotor velocity (m/s) 
         
+    case 54 % Table 5-4 Design Parameters
+        
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.003           % Aluminum Rotor outer thickness (m)
+        m = 3               % Number of phases	**GOOD**
+        Vline = 480         % RMS line-to-line voltage (V)
+        f = 60              % Supply frequency (Hz)
+        p = 4               % Number of poles
+        q1 = 1              % Number of slots per pole per phase	**GOOD**
+        Ws = 3.1416         % Width of the stator (m)	**GOOD**
+        gm = 0.01           % Physical air gap (m)
+        
+%         Srated = 0.10       % Rated slip
+        Srated = 0.05       % Rated slip
+        Fsprime = 8161      % Target thrust (N)
+%         Fsprime = 8177      % Target thrust (N)
+        Vr = 15.5           % Rated rotor velocity (m/s) 
+        
 end
 
 %% Simulation Calcs
 
 % Data from the PCP design procedure
-V1 = Vline/sqrt(3);
+V1 = Vline/sqrt(3);         % Rated primary RMS - Eqn 4.16
 Vs = Vr/(1 - Srated);       % Sychronous velocity (m/s)	**GOOD**
 tau = Vs/(2*f);             % Pole pitch	**GOOD**
 lambda = tau/(m*q1);        % Slot pitch    **GOOD**
@@ -199,7 +230,7 @@ while (gauge < 8)
     
     gauge = gauge + 1;
 %     gauge = 5
-    pw = 0;
+    Np = 0;
 %     r = 0;    % Unused variable
     wt = 1;
     wtmin = 0;
@@ -210,11 +241,11 @@ while (gauge < 8)
         
 %         r = r + 1;    % Unused variable
 %         g = g + 1;    % Unused variable
-        wire_d = A(gauge,2);
-        pw = pw + 1;
-        ws = (wire_d*10^-3*pw) + 2.2*10^-3;
-        wt = lambda - ws;
-        Aw = pw*pi/4*wire_d^2*1e-6;
+        Dw = A(gauge,2);	% Diameter of selected copper wire (mm)
+        Np = Np + 1;
+        ws = (Dw*10^-3*Np) + 2.2*10^-3;	% Eqn 4.18
+        wt = lambda - ws;	% Eqn 4.19
+        Aw = Np*pi/4*Dw^2*1e-6;
         As = (10*Nc*Aw)/7;
         hs = As/ws;
         gm = 0.01;
@@ -247,7 +278,7 @@ while (gauge < 8)
     end
     
     hy = 4*sqrt(2)*m*kw*N1*abs(Im)*mu0*Ls/(pi*pi*p*p*ge*bymax);
-    para_wires(gauge) = pw;
+    para_wires(gauge) = Np;
     slot_width(gauge) = ws; 
     tooth_width(gauge) = wt;
     min_toothwidth(gauge) = wtmin;
@@ -300,6 +331,98 @@ for slip = 0.000001:0.01:1
     e = e + 1;
     
 end
+
+%% Miscellaneous calcs (not included in original code)
+% Physical properties
+rhoiron = 7870;                     % Density of iron (kg/m^3)
+rhocopper = 8960;                   % Density of copper (kg/m^3)
+
+% Assumptions & Dummy values
+lce = 0.1144;                       % Length of end connection
+Vcopper = 0.0182;                   % Volume of copper used
+
+% Ammount of material required for construction of one SLIM stator
+lw = 2*(Ws + lce)*N1;               % Length of one turn of copper winding inside a stator slot
+Tlw = m*Np*lw;                      % Length of copper wire required for stator windings
+Vyoke = Ls*Ws*hy;                   % Volume of iron required for stator yoke
+Vtooth = Ws*wt*hs;                  % Volume of iron required for stator tooth
+Vteeth = m*p*q1*Ws*wt*hs;           % Volume of iron required for stator teeth
+Viron = Ws*(Ls*hy + m*p*q1*wt*hs);  % Total volume of iron required
+Wiron = rhoiron*Viron;              % Total weight of iron required
+Wcopper = rhocopper*Vcopper;        % Total weight of copper required
+Wstator = rhoiron*Viron;            % Total weight of stator
+
+%% Generate table of outputs 
+
+VariableNames = {   
+                    'Rated Slip, S';
+                    'Yoke density, Bymax';
+                    'Tooth density, Btmax';
+                    'Core Width';
+                    'SLIM Synchronous velocity, Vs';
+                    'Rotor velocity, Vr';
+                    'No. of Poles, p';
+                    'Pole pitch, tau';
+                    'Slot pitch, lamda';
+                    'Stator length, Ls';
+                    '"Target" Thrust, Fsprime';
+                    'No. of turns per slot, Nc';
+                    'No. of turns per phase, N1';
+                    'Copper wire size in winding, gauge';
+                    'Diameter of selected copper wire (mm), Dw';
+                    'Parallel wires, Np';
+                    'Slot width, ws';
+                    'Tooth width, wt';
+                    'Minimum tooth width, wtmin';
+                    'Slot depth, hs';
+                    'Stator core yoke height, hy';
+                    'Actual thrust at specified Vr, Fs';
+                    'Output power at specified Vr, Pout';
+                    'Input power at specified Vr, Pin';
+                    'Stator efficiency at specified Vr, eta';
+                    'Actual rated stator RMS current, I1';
+                    'Actual stator current density, J1';
+                    'Total length of copper wire, Tlw';
+                    'Total weight of copper wire, Wcopper';
+                    'Iron core weight, Wiron';
+                    'Total weight of one stator unit, Wstator';
+                };
+
+SLIM2 = [    	Srated;
+                bymax;
+                btmax;
+                Ws;
+                Vs;
+                Vr;
+                p;
+                tau;
+                lambda;
+                Ls;
+                Fsprime;
+                Nc;
+                N1;
+                gauge;
+                Dw;
+                Np;
+                ws;
+                wt;
+                wtmin;
+                hs;
+                hy;
+                Force(int32(Vr));
+                out_pow(int32(Vr));
+                in_pow(int32(Vr));
+                eff(int32(Vr));
+                I1;
+                J1;
+                Tlw;
+                Wcopper;
+                Wiron;
+                Wstator         ];
+
+T = table(SLIM2,'RowNames',VariableNames)
+
+%% Graph Thrust and Efficiency
 
 figure(1)
 plot(vel_rot,Force,'green')
