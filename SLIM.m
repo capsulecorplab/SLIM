@@ -9,7 +9,7 @@ clc;
 
 %% Assign Design parameters
 
-designno = 1;   % Set Design Case no.
+designno = 3;   % Set Design Case no.
 
 switch designno
     
@@ -78,11 +78,35 @@ switch designno
         d = 0.0105          % Rotor outer thickness (m)
         m = 3               % Number of phases	**GOOD**
         Vline = 75          % RMS line-to-line voltage (V)
-        f = 250              % Supply frequency (Hz)
+        f = 250             % Supply frequency (Hz)
         p = 2               % Number of poles
         q1 = 2              % Number of slots per pole per phase	**GOOD**
         Ws = 0.038          % Width of the stator (m)	**GOOD**
-        gm = 0.004           % Physical air gap (m)
+        gm = 0.004          % Physical air gap (m)
+        
+        Srated = 0.10       % Rated slip
+        Fsprime = 800       % Target thrust (N)
+        Vr = 120            % Rated rotor velocity (m/s)
+        
+	case 3 % Keith's Design Parameters - case no. 3
+        
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.021           % Rotor outer thickness (m)
+        m = 3               % Number of phases	**GOOD**
+        Vline = 75          % RMS line-to-line voltage (V)
+        f = 250             % Supply frequency (Hz)
+        p = 2               % Number of poles
+        q1 = 2              % Number of slots per pole per phase	**GOOD**
+        Ws = 0.038          % Width of the stator (m)	**GOOD**
+        gm = 0.004          % Physical air gap (m)
         
         Srated = 0.10       % Rated slip
         Fsprime = 800       % Target thrust (N)
@@ -664,7 +688,7 @@ legend('Actual Efficiency','Target Velocity','Ideal Efficiency')
 % run simulation at design parameters without relooping to find 
 % new values except calculate at the three changed constants
 
-operatingno = 11;   % Set Design Case no.
+operatingno = 13;   % Set Design Case no.
 
 switch operatingno
     
