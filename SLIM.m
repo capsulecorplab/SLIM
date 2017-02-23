@@ -9,7 +9,7 @@ clc;
 
 %% Assign Design parameters
 
-designno = 3;   % Set Design Case no.
+designno = 4;   % Set Design Case no.
 
 switch designno
     
@@ -17,6 +17,8 @@ switch designno
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -43,6 +45,8 @@ switch designno
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -68,6 +72,8 @@ switch designno
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -92,6 +98,8 @@ switch designno
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -112,10 +120,36 @@ switch designno
         Fsprime = 800       % Target thrust (N)
         Vr = 120            % Rated rotor velocity (m/s)
         
+	case 4 % Keith's Design Parameters - case no. 4 for a puller on the track with wheels for air-gap spacing
+        
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.0105          % Rotor outer thickness (m)
+        m = 3               % Number of phases    **GOOD**
+        Vline = 75          % RMS line-to-line voltage (V)
+        f = 250              % Supply frequency (Hz)
+        p = 2               % Number of poles
+        q1 = 2              % Number of slots per pole per phase    **GOOD**
+        Ws = 0.28          % Width of the stator (m)    **GOOD**
+        gm = 0.006           % Physical air gap (m)
+        
+        Srated = 0.10       % Rated slip
+        Fsprime = 1600       % Target thrust (N)
+        Vr = 120            % Rated rotor velocity (m/s)
+        
     case 42 % Table 4-2 Design Parameters
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -142,6 +176,8 @@ switch designno
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -166,6 +202,8 @@ switch designno
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -190,6 +228,8 @@ switch designno
         
         % ElectroMagnetic constants
         mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        mu = 4000*mu0       % Magnetic Permeability of laminated steel    **GOOD**
+%         mu = 8*10^-4        % Magnetic Permeability for carbon steel    **GOOD**
         rhow = 19.27*10^-9  % Copper volume resistivity
         rhor = 28.85*10^-9  % Capsule conductor volume resistivity
         btmax = 1.6         % Maximum allowable flux density in tooth (T)
@@ -242,7 +282,8 @@ for i = 1:30
         kc = lambda/(lambda - gamma*go);
         ge = kc*go;
         kw = sin(pi/(2*m))/(q1*sin(pi/(2*m*q1)));
-        G = 2*mu0*f*tau^2/(pi*(rhor/d)*ge);
+        G = 2*mu0*f*tau^2/(pi*(rhor/d)*ge);     % Goodness factor for in vacuum
+%         G = 2*mu*f*tau^2/(pi*(rhor/d)*ge);     % Goodness factor
         a = pi/2;
         ae = a + ge/2;
         Lce = tau;
@@ -255,8 +296,8 @@ for i = 1:30
         R1(i) = rhow*(4*a + 2*Lce)*J1*N1/I1prime;
         a1(i) = lamda_s*(1 + 3/p) + lamda_d;
         b1(i) = lamda_e*Lce;
-        X1(i) = 8*mu0*pi*f*((a1(i)*2*a/q1) + b1(i))*N1^2/p;
-        Xm(i) = (48*mu0*pi*f*ae*kw*N1^2*tau)/(pi^2*p*ge);
+        X1(i) = 8*mu0*pi*f*((a1(i)*2*a/q1) + b1(i))*N1^2/p; % Leakage Reactance
+        Xm(i) = (48*mu0*pi*f*ae*kw*N1^2*tau)/(pi^2*p*ge);  % Magnetizing Reactance
         R2(i) = Xm(i)/G;
 
         Z(i) = R1(i) + j*X1(i) + ((j*R2(i)*Xm(i))/Srated)/((R2(i)/Srated) + j*Xm(i));
@@ -328,7 +369,8 @@ while (gauge < 8)
         gamma = (4/pi)*(((ws/(2*go))*atan(ws/(2*go))) - log(sqrt(1 + ((ws/(2*go))^2))));
         kc = lambda/(lambda - gamma*go);
         ge = kc*go;
-        G = 2*mu0*f*tau^2/(pi*(rhor/d)*ge);
+        G = 2*mu0*f*tau^2/(pi*(rhor/d)*ge);     % Goodness factor for in vacuum
+%         G = 2*mu*f*tau^2/(pi*(rhor/d)*ge);     % Goodness factor
         kw = sin(pi/(2*m))/(q1*sin(pi/(2*m*q1)));
         a = pi/2;
         ae = a + ge/2;
@@ -342,8 +384,8 @@ while (gauge < 8)
         R1 = rhow*(4*a + 2*Lce)*J1*N1/I1prime;
         a1 = lamda_s*(1 + 3/p)+lamda_d;
         b1 = lamda_e*Lce;
-        X1 = 8*mu0*pi*f*((a1*2*a/q1) + b1)*N1^2/p;
-        Xm = (48*mu0*pi*f*ae*kw*N1^2*tau)/(pi^2*p*ge);
+        X1 = 8*mu0*pi*f*((a1*2*a/q1) + b1)*N1^2/p; % Leakage Reactance
+        Xm = (48*mu0*pi*f*ae*kw*N1^2*tau)/(pi^2*p*ge);  % Magnetizing Reactance
         R2 = Xm/G;
         Z = R1 + j*X1 + (R2/Srated*j*Xm)/(R2/Srated + j*Xm);
         I1 = V1/abs(Z);
@@ -353,7 +395,8 @@ while (gauge < 8)
         
     end
     
-    hy = 4*sqrt(2)*m*kw*N1*abs(Im)*mu0*Ls/(pi*pi*p*p*ge*bymax);
+    hy = 4*sqrt(2)*m*kw*N1*abs(Im)*mu0*Ls/(pi*pi*p*p*ge*bymax);  % Yoke height of stator core
+%     hy = 4*sqrt(2)*m*kw*N1*abs(Im)*mu*Ls/(pi*pi*p*p*ge*bymax);  % Yoke height of stator core
     para_wires(gauge) = Np;
     slot_width(gauge) = ws; 
     tooth_width(gauge) = wt;
@@ -367,6 +410,7 @@ while (gauge < 8)
     gap_e(gauge) = ge;
     current_den(gauge) = abs(I1)/Aw;
     height_yoke(gauge) = 4*sqrt(2)*m*kw*N1*(Im)*mu0*Ls/(pi*pi*p*p*ge*bymax);
+%     height_yoke(gauge) = 4*sqrt(2)*m*kw*N1*(Im)*mu*Ls/(pi*pi*p*p*ge*bymax);
     final_thrust(gauge) = (m*abs(I1)^2*R2)/(((1/(Srated*G)^2) + 1)*Vs*Srated);
     output(gauge) = final_thrust(gauge)*Vr;
     input(gauge) = output(gauge) + m*abs(I2)^2*R2 + m*abs(I1)^2*R1;
