@@ -9,7 +9,7 @@ clc;
 
 %% Assign Design parameters
 
-designno = 5;   % Set Design Case no.
+designno = 4;   % Set Design Case no.
 
 switch designno
     
@@ -466,6 +466,9 @@ e = 1;
 for slip = 0.000001:0.01:1
     
     vel_rot(e) = vel_sta*(1 - slip);
+    if abs(Vr - vel_rot(e))/Vr < 0.01
+        n_Vr = e;   % Index for where v = Vr
+    end
     impz(e) = R1 + j*X1 + (R2/slip*j*Xm)/(R2/slip + j*Xm);
     i1(e) = V1/abs(impz(e));
     i2(e) = j*i1(e)*Xm/(R2/slip + j*Xm);
@@ -592,12 +595,9 @@ Value = [    	Srated;
                 hs;
                 hy;
                 Fs;
-%                 Pout;
-%                 Pin;
-%                 eta;
-                0;
-                0;
-                0;
+                out_pow(n_Vr);
+                in_pow(n_Vr);
+                eff(n_Vr);
                 I1;
                 abs(I1)/Aw; % Formula for current density
                 Tlw;
@@ -717,6 +717,11 @@ size(VariableNames)
 
 T = table(Variable,Value,Units,Dependencies,line_reference,'RowNames',VariableNames)
 
+%% Write table to csv
+formatSpec = 'SLIM_case_no_%0.f.csv';
+filename = sprintf(formatSpec,designno);
+writetable(T,filename)
+
 %% Graph Thrust and Efficiency
 
 figure(1)
@@ -798,7 +803,7 @@ switch operatingno
         
 end
 		
-%% Calculate output performance under design case
+%% Calculate output performance per design case and operating conditions
 
 % Data from the PCP design procedure
 V1 = Vline/sqrt(3);         % Rated primary RMS - Eqn 4.16
