@@ -9,7 +9,7 @@ clc;
 
 %% Assign Design parameters
 
-designno = 4;   % Set Design Case no.
+designno = 5;   % Set Design Case no.
 
 switch designno
     
@@ -141,6 +141,30 @@ switch designno
         gm = 0.001          % Physical air gap (m)
         
         Srated = 0.10       % Rated slip
+        Fsprime = 1600       % Target thrust (N)
+        Vr = 120            % Rated rotor velocity (m/s)
+        
+	case 5 % Keith's Design Parameters - case no. 4 for a puller on the track with wheels for air-gap spacing
+        
+        % ElectroMagnetic constants
+        mu0 = 4*pi*10^-7    % Permeability of free-space    **GOOD**
+        rhow = 19.27*10^-9  % Copper volume resistivity
+        rhor = 28.85*10^-9  % Capsule conductor volume resistivity
+        btmax = 1.6         % Maximum allowable flux density in tooth (T)
+        bymax = 1.3         % Maximum allowable flux density in yoke (T)
+        J1 = 6*10^6         % Stator current density (A/m^2)
+        
+        % Design parameters
+        d = 0.0105          % Rotor outer thickness (m)
+        m = 3               % Number of phases    **GOOD**
+        Vline = 150         % RMS line-to-line voltage (V)
+        f = 60              % Supply frequency (Hz)
+        p = 4               % Number of poles
+        q1 = 2              % Number of slots per pole per phase    **GOOD**
+        Ws = 0.051          % Width of the stator (m)    **GOOD**
+        gm = 0.001          % Physical air gap (m)
+        
+        Srated = 0.05       % Rated slip
         Fsprime = 1600       % Target thrust (N)
         Vr = 120            % Rated rotor velocity (m/s)
         
@@ -708,7 +732,7 @@ hold on;
 % plot([0 15.5],[Fs Fs]);  % Only applies for Vr = 15.5
 plot([0 Vr],[Fs Fs]);
 hold on;
-title(['Force vs. Velocity Outputs for design case no. ' num2str(designno)])
+title(['Force vs. Velocity for design case no. ' num2str(designno)])
 legend('Actual Force','Target Velocity','Target Force')
 
 figure(2);
@@ -724,7 +748,7 @@ grid on
 grid minor
 ylabel('Efficiency (%)')
 xlabel('Rotor Velocity, Vr (m/s)')
-title(['Efficiency vs. Velocity Outputs for design case no. ' num2str(designno)])
+title(['Efficiency vs. Velocity for design case no. ' num2str(designno)])
 legend('Actual Efficiency','Target Velocity','Ideal Efficiency')
 
 %% Assign Operating parameters
