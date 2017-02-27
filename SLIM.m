@@ -133,12 +133,12 @@ switch designno
         % Design parameters
         d = 0.0105          % Rotor outer thickness (m)
         m = 3               % Number of phases    **GOOD**
-        Vline = 75          % RMS line-to-line voltage (V)
-        f = 250              % Supply frequency (Hz)
-        p = 2               % Number of poles
+        Vline = 150         % RMS line-to-line voltage (V)
+        f = 60              % Supply frequency (Hz)
+        p = 4               % Number of poles
         q1 = 2              % Number of slots per pole per phase    **GOOD**
-        Ws = 0.28          % Width of the stator (m)    **GOOD**
-        gm = 0.006           % Physical air gap (m)
+        Ws = 0.051          % Width of the stator (m)    **GOOD**
+        gm = 0.001          % Physical air gap (m)
         
         Srated = 0.10       % Rated slip
         Fsprime = 1600       % Target thrust (N)
