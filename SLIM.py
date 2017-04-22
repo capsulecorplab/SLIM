@@ -292,52 +292,37 @@ tau = Vs/(2*f)             # Pole np.pitch	**GOOD**
 Lambda = tau/(m*q1)        # Slot np.pitch    **GOOD**
 Ls = p*tau                 # Stator Length	**GOOD**
 
-ncos1 = np.empty([1,])
+ncos1 = []
 
-R1 = np.empty([0,])
-a1 = np.empty([0,])
-b1 = np.empty([0,])
-X1 = np.empty([0,])
-Xm = np.empty([0,])
-R2 = np.empty([0,])
+R1 = []
+a1 = []
+b1 = []
+X1 = []
+Xm = []
+R2 = []
 
-Z = np.empty([0,])
+Z = []
 
-I1 = np.empty([0,])
-I2 = np.empty([0,])
-Im = np.empty([0,])
+I1 = []
+I2 = []
+Im = []
 
-Fs = np.empty([0,])
-diff = np.empty([0,])
+Fs = []
+diff = []
 
 
 for i in range(1,30):
 	
 	N1 = p*q1*i
 	ncos0 = 0.2
-	ncos = ncos1[i] = 1
+#	ncos1[1] = 1
+	ncos1 = 1
 	
-	R1 = np.append(i,0)
-	a1 = np.append(i,0)
-	b1 = np.append(i,0)
-	X1 = np.append(i,0)
-	Xm = np.append(i,0)
-	R2 = np.append(i,0)
-
-	Z = np.append(i,0)
-
-	I1 = np.append(i,0)
-	I2 = np.append(i,0)
-	Im = np.append(i,0)
-
-	Fs = np.append(i,0)
-	diff = np.append(i,0)
-	
-	while np.abs(ncos0 - ncos1[i]) > 0.0001:
-		print 'i:',i
+#	while np.abs(ncos0 - ncos1[i]) > 0.0001:
+	while np.abs(ncos0 - ncos1) > 0.0001:
+#		print 'i:',i
 		I1prime = (Fsprime*Vr)/(m*V1*ncos0)
 		Aw = I1prime/J1
-#		As = (10*i*Aw)/7
 		As = (10*i*Aw)/7
 		ws = Lambda/2
 		wt = ws
@@ -358,35 +343,53 @@ for i in range(1,30):
 		lamda_d = 5*(ge/ws)/(5 + 4*(go/ws))
 
 		#Equivalent Circuit Components
-		R1[i] = rhow*(4*a + 2*Lce)*J1*N1/I1prime
-		a1[i] = lamda_s*(1 + 3/p) + lamda_d
-		b1[i] = lamda_e*Lce
-		X1[i] = 8*mu0*np.pi*f*((a1[i]*2*a/q1) + b1[i])*N1**2/p # Leakage Reactance
-		Xm[i] = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
-		R2[i] = Xm[i]/G
+#		R1[i] = rhow*(4*a + 2*Lce)*J1*N1/I1prime
+		R1 = rhow*(4*a + 2*Lce)*J1*N1/I1prime
+#		a1[i] = lamda_s*(1 + 3/p) + lamda_d
+		a1 = lamda_s*(1 + 3/p) + lamda_d
+#		b1[i] = lamda_e*Lce
+		b1 = lamda_e*Lce
+#		X1[i] = 8*mu0*np.pi*f*((a1[i]*2*a/q1) + b1[i])*N1**2/p # Leakage Reactance
+		X1 = 8*mu0*np.pi*f*((a1*2*a/q1) + b1)*N1**2/p # Leakage Reactance
+#		Xm[i] = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
+		Xm = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
+#		R2[i] = Xm/G
+		R2 = Xm/G
 #		print 'R1[i]',R1[i],'1j',1j,'X1[i]',X1[i],'R2[i]',R2[i],'Xm[i]',Xm[i]
-		Z[i] = R1[i] + 1j*X1[i] + ((1j*R2[i]*Xm[i])/Srated)/((R2[i]/Srated) + 1j*Xm[i])
+#		Z[i] = R1[i] + 1j*X1[i] + ((1j*R2[i]*Xm[i])/Srated)/((R2[i]/Srated) + 1j*Xm[i])
+		Z = R1 + 1j*X1 + ((1j*R2*Xm)/Srated)/((R2/Srated) + 1j*Xm)
 #		print 'V1',V1,'np.abs(Z[i])',np.abs(Z[i])
-		I1[i] = V1/np.abs(Z[i])
-		I2[i] = 1j*I1[i]*Xm[i]/(R2[i]/Srated + 1j*Xm[i])
-		Im[i] = I1[i] - I2[i]
+#		I1[i] = V1/np.abs(Z[i])
+		I1 = V1/np.abs(Z)
+#		I2[i] = 1j*I1[i]*Xm/(R2[i]/Srated + 1j*Xm)
+		I2 = 1j*I1*Xm/(R2/Srated + 1j*Xm)
+#		Im[i] = I1[i] - I2[i]
+		Im = I1 - I2
 
 		#Actual TLIM Thrust
 #		print 'm:',m, 'I1[i]', I1[i], 'R2[i]',R2[i],'Srated',Srated,'G',G,'Vs',Vs
-		Fs[i] = (m*np.abs(I1[i])**2*R2[i])/(((1/(Srated*G)**2) + 1)*Vs*Srated)   # Eqn 3.51
-		diff[i] = Fs[i] - Fsprime
+#		Fs[i] = (m*np.abs(I1[i])**2*R2[i])/(((1/(Srated*G)**2) + 1)*Vs*Srated)   # Eqn 3.51
+#		Fs[i] = (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated)   # Eqn 3.51
+#		diff[i] = Fs[i] - Fsprime
+		if np.shape(Fs)[0] < i:
+			Fs = np.insert(Fs, i-1, (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated) )   # Eqn 3.51
+			diff = np.insert(diff, i-1, Fs[i-1] - Fsprime )
 		dmin = np.min(np.abs(diff))
 		Pout = Fs*Vr	# Eqn 3.4
-		Pin = Pout + m*np.abs(I2[i])**2*R2[i] + m*np.abs(I1[i])**2*R1[i]   # Eqn 3.52
+#		Pin = Pout + m*np.abs(I2[i])**2*R2[i] + m*np.abs(I1[i])**2*R1[i]   # Eqn 3.52
+		Pin = Pout + m*np.abs(I2)**2*R2 + m*np.abs(I1)**2*R1   # Eqn 3.52
 		eta = Pout/Pin
-		PF = np.cos(np.angle(Z[i]))
+#		PF = np.cos(np.angle(Z[i]))
+		PF = np.cos(np.angle(Z))
 		print 'Fs:',Fs
 #		print 'Pout:',Pout
 #		print 'Pin:',Pin
 		print 'eta:',eta
 #		print 'PF:',PF
-		ncos1[i] = eta*PF
-		ncos0 = (ncos0+ncos1[i])/2
+#		ncos1[i] = eta*PF
+		ncos1 = eta*PF
+#		ncos0 = (ncos0+ncos1[i])/2
+		ncos0 = (ncos0+ncos1)/2
 
 
 dmin = np.min(np.abs(diff))
