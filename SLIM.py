@@ -1,22 +1,15 @@
-#!/usr/bin/env python
-
-
-# Python version of SLIM.m
+import numpy as np
+import matplotlib as plt
 
 ## Variable names changed (for consistency with thesis paper)
 # 'Vcrated' changed to 'Vr' - Rated rotor velocity (m/s)
 # 'pw' changed to 'Np' - No. of parallel wires
 # 'wire_d' changed to 'Dw' - Diameter of selected copper wire (mm)
 
-import numpy as np
-import matplotlib as plt
-
 
 ## Assign Design parameters
 
 designno = 4   # Set Design Case no.
-
-
     
 if designno == 0: # Keith's Design Parameters - case no. 0
 
@@ -311,15 +304,15 @@ Fs = []
 diff = []
 
 
-for i in range(1,30):
+for i in range(30):
 	
 	N1 = p*q1*i
 	ncos0 = 0.2
-#	ncos1[1] = 1
-	ncos1 = 1
+	ncos1[0] = 1
+	# ncos1 = 1
 	
-#	while np.abs(ncos0 - ncos1[i]) > 0.0001:
-	while np.abs(ncos0 - ncos1) > 0.0001:
+	while np.abs(ncos0 - ncos1[i]) > 0.0001:
+	# while np.abs(ncos0 - ncos1) > 0.0001:
 #		print 'i:',i
 		I1prime = (Fsprime*Vr)/(m*V1*ncos0)
 		Aw = I1prime/J1
@@ -381,15 +374,15 @@ for i in range(1,30):
 		eta = Pout/Pin
 #		PF = np.cos(np.angle(Z[i]))
 		PF = np.cos(np.angle(Z))
-		print 'Fs:',Fs
+		# print 'Fs:',Fs
 #		print 'Pout:',Pout
 #		print 'Pin:',Pin
-		print 'eta:',eta
+		# print 'eta:',eta
 #		print 'PF:',PF
 #		ncos1[i] = eta*PF
 		ncos1 = eta*PF
-#		ncos0 = (ncos0+ncos1[i])/2
-		ncos0 = (ncos0+ncos1)/2
+		ncos0 = (ncos0+ncos1[i])/2
+		# ncos0 = (ncos0+ncos1)/2
 
 
 dmin = np.min(np.abs(diff))
@@ -407,14 +400,16 @@ I1 = I1[k]     # Actual rated stator RMS current (A)
 
 ncos1 = ncos1[k]
 
-A = {	3:	5.8	,
-	4:	5.189	,
-	5:	4.62	,
-	6:	4.1148	,
-	7:	3.66	,
-	8:	3.2639	,
-	9:	2.9057	,
-	10:	2.588   }
+A = {	
+	3:	5.8	,
+	4:	5.189,
+	5:	4.62,
+	6:	4.1148,
+	7:	3.66,
+	8:	3.2639,
+	9:	2.9057,
+	10:	2.588,
+	}
 
 #gauge = 0
 
