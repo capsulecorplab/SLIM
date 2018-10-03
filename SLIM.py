@@ -13,7 +13,7 @@ designno = 4   # Set Design Case no.
     
 if designno == 0: # Keith's Design Parameters - case no. 0
 
-	# ElectroMagnetic constants
+    # ElectroMagnetic constants
 #        mu0 = 4*np.pi*10**-7    # Permeability of free-space    **GOOD**
 #        mu = 4000*mu0       # Magnetic Permeability of laminated steel    **GOOD**
         mu = 8*10**-4        # Magnetic Permeability for carbon steel    **GOOD**
@@ -25,13 +25,13 @@ if designno == 0: # Keith's Design Parameters - case no. 0
         
         # Design parameters
         d = 0.0105          # Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 75          # RMS line-to-line voltage (V)
         f = 250             # Supply frequency (Hz)
 #         f = 62             # Supply frequency (Hz)
         p = 6               # Number of poles
-        q1 = 2              # Number of slots per pole per phase	**GOOD**
-        Ws = 0.038          # Width of the stator (m)	**GOOD**
+        q1 = 2              # Number of slots per pole per phase    **GOOD**
+        Ws = 0.038          # Width of the stator (m)    **GOOD**
         gm = 0.004          # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
@@ -53,19 +53,19 @@ elif designno == 1: # Keith's Design Parameters - case no. 1
         
         # Design parameters
         d = 0.0105          # Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 75          # RMS line-to-line voltage (V)
         f = 250              # Supply frequency (Hz)
         p = 4               # Number of poles
-        q1 = 2              # Number of slots per pole per phase	**GOOD**
-        Ws = 0.038          # Width of the stator (m)	**GOOD**
+        q1 = 2              # Number of slots per pole per phase    **GOOD**
+        Ws = 0.038          # Width of the stator (m)    **GOOD**
         gm = 0.004           # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
         Fsprime = 800       # Target thrust (N)
         Vr = 120            # Rated rotor velocity (m/s)
         
-		
+        
 elif designno == 2: # Keith's Design Parameters - case no. 2
         
         # ElectroMagnetic constants
@@ -80,12 +80,12 @@ elif designno == 2: # Keith's Design Parameters - case no. 2
         
         # Design parameters
         d = 0.0105          # Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 75          # RMS line-to-line voltage (V)
         f = 250             # Supply frequency (Hz)
         p = 2               # Number of poles
-        q1 = 2              # Number of slots per pole per phase	**GOOD**
-        Ws = 0.038          # Width of the stator (m)	**GOOD**
+        q1 = 2              # Number of slots per pole per phase    **GOOD**
+        Ws = 0.038          # Width of the stator (m)    **GOOD**
         gm = 0.004          # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
@@ -106,12 +106,12 @@ elif designno == 3: # Keith's Design Parameters - case no. 3
         
         # Design parameters
         d = 0.021           # Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 75          # RMS line-to-line voltage (V)
         f = 250             # Supply frequency (Hz)
         p = 2               # Number of poles
-        q1 = 2              # Number of slots per pole per phase	**GOOD**
-        Ws = 0.038          # Width of the stator (m)	**GOOD**
+        q1 = 2              # Number of slots per pole per phase    **GOOD**
+        Ws = 0.038          # Width of the stator (m)    **GOOD**
         gm = 0.004          # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
@@ -180,12 +180,12 @@ elif designno == 42: # Table 4-2 Design Parameters
         
         # Design parameters
         d = 0.003           # Aluminum Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 480         # RMS line-to-line voltage (V)
         f = 60              # Supply frequency (Hz)
         p = 4               # Number of poles
-        q1 = 1              # Number of slots per pole per phase	**GOOD**
-        Ws = 3.14           # Width of the stator (m)	**GOOD**
+        q1 = 1              # Number of slots per pole per phase    **GOOD**
+        Ws = 3.14           # Width of the stator (m)    **GOOD**
         gm = 0.01           # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
@@ -208,12 +208,12 @@ elif designno == 44: # Table 4-4 Design Parameters
         
         # Design parameters
         d = 0.003           # Aluminum Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 480         # RMS line-to-line voltage (V)
         f = 60              # Supply frequency (Hz)
         p = 4               # Number of poles
-        q1 = 1              # Number of slots per pole per phase	**GOOD**
-        Ws = 3.1416         # Width of the stator (m)	**GOOD**
+        q1 = 1              # Number of slots per pole per phase    **GOOD**
+        Ws = 3.1416         # Width of the stator (m)    **GOOD**
         gm = 0.01           # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
@@ -234,12 +234,12 @@ elif designno == 45: # Table 4-5 Design Parameters
         
         # Design parameters
         d = 0.003           # Aluminum Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 480         # RMS line-to-line voltage (V)
         f = 60              # Supply frequency (Hz)
         p = 4               # Number of poles
-        q1 = 1              # Number of slots per pole per phase	**GOOD**
-        Ws = 3.1416         # Width of the stator (m)	**GOOD**
+        q1 = 1              # Number of slots per pole per phase    **GOOD**
+        Ws = 3.1416         # Width of the stator (m)    **GOOD**
         gm = 0.01           # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
@@ -260,12 +260,12 @@ elif designno == 54: # Table 5-4 Design Parameters
         
         # Design parameters
         d = 0.003           # Aluminum Rotor outer thickness (m)
-        m = 3               # Number of phases	**GOOD**
+        m = 3               # Number of phases    **GOOD**
         Vline = 480         # RMS line-to-line voltage (V)
         f = 60              # Supply frequency (Hz)
         p = 4               # Number of poles
-        q1 = 1              # Number of slots per pole per phase	**GOOD**
-        Ws = 3.1416         # Width of the stator (m)	**GOOD**
+        q1 = 1              # Number of slots per pole per phase    **GOOD**
+        Ws = 3.1416         # Width of the stator (m)    **GOOD**
         gm = 0.01           # Physical air gap (m)
         
         Srated = 0.10       # Rated slip
@@ -280,10 +280,10 @@ elif designno == 54: # Table 5-4 Design Parameters
 
 # Data from the PCP design procedure
 V1 = Vline/np.sqrt(3)         # Rated primary RMS - Eqn 4.16
-Vs = Vr/(1 - Srated)       # Sychronous velocity (m/s)	**GOOD**
-tau = Vs/(2*f)             # Pole np.pitch	**GOOD**
+Vs = Vr/(1 - Srated)       # Sychronous velocity (m/s)    **GOOD**
+tau = Vs/(2*f)             # Pole np.pitch    **GOOD**
 Lambda = tau/(m*q1)        # Slot np.pitch    **GOOD**
-Ls = p*tau                 # Stator Length	**GOOD**
+Ls = p*tau                 # Stator Length    **GOOD**
 
 ncos1 = []
 
@@ -305,111 +305,119 @@ diff = []
 
 
 for i in range(30):
-	
-	N1 = p*q1*i
-	ncos0 = 0.2
-	ncos1[0] = 1
-	# ncos1 = 1
-	
-	while np.abs(ncos0 - ncos1[i]) > 0.0001:
-	# while np.abs(ncos0 - ncos1) > 0.0001:
-#		print 'i:',i
-		I1prime = (Fsprime*Vr)/(m*V1*ncos0)
-		Aw = I1prime/J1
-		As = (10*i*Aw)/7
-		ws = Lambda/2
-		wt = ws
-		hs = As/ws
-		go = gm + d
-		gamma = (4/np.pi)*(((ws/(2*go))*np.arctan(ws/(2*go))) - np.log(np.sqrt(1 + ((ws/(2*go))**2))))
-		kc = Lambda/(Lambda - gamma*go)
-		ge = kc*go
-		kw = np.sin(np.pi/(2*m))/(q1*np.sin(np.pi/(2*m*q1)))
-		G = 2*mu0*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor for in vacuum
-#		G = 2*mu*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor
-		a = np.pi/2
-		ae = a + ge/2
-		Lce = tau
-		beta1 = 1
-		lamda_s = (hs*(1+3*beta1))/(12*ws)
-		lamda_e = (0.3*(3*beta1-1)) 
-		lamda_d = 5*(ge/ws)/(5 + 4*(go/ws))
+    
+    N1 = p*q1*(i+1)
+    ncos0 = 0.2
+    try:
+        ncos1[0] = 1
+    except:
+        ncos1.append(1)
+    # ncos1 = 1
+    
+    while np.abs(ncos0 - ncos1[i]) > 0.0001:
+    # while np.abs(ncos0 - ncos1) > 0.0001:
+        print('i:',i)
+        I1prime = (Fsprime*Vr)/(m*V1*ncos0)
+        Aw = I1prime/J1
+        As = (10*(i+1)*Aw)/7
+        ws = Lambda/2
+        wt = ws
+        hs = As/ws
+        go = gm + d
+        gamma = (4/np.pi)*(((ws/(2*go))*np.arctan(ws/(2*go))) - np.log(np.sqrt(1 + ((ws/(2*go))**2))))
+        kc = Lambda/(Lambda - gamma*go)
+        ge = kc*go
+        kw = np.sin(np.pi/(2*m))/(q1*np.sin(np.pi/(2*m*q1)))
+        G = 2*mu0*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor for in vacuum
+#        G = 2*mu*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor
+        a = np.pi/2
+        ae = a + ge/2
+        Lce = tau
+        beta1 = 1
+        lamda_s = (hs*(1+3*beta1))/(12*ws)
+        lamda_e = (0.3*(3*beta1-1)) 
+        lamda_d = 5*(ge/ws)/(5 + 4*(go/ws))
 
-		#Equivalent Circuit Components
-#		R1[i] = rhow*(4*a + 2*Lce)*J1*N1/I1prime
-		R1 = rhow*(4*a + 2*Lce)*J1*N1/I1prime
-#		a1[i] = lamda_s*(1 + 3/p) + lamda_d
-		a1 = lamda_s*(1 + 3/p) + lamda_d
-#		b1[i] = lamda_e*Lce
-		b1 = lamda_e*Lce
-#		X1[i] = 8*mu0*np.pi*f*((a1[i]*2*a/q1) + b1[i])*N1**2/p # Leakage Reactance
-		X1 = 8*mu0*np.pi*f*((a1*2*a/q1) + b1)*N1**2/p # Leakage Reactance
-#		Xm[i] = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
-		Xm = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
-#		R2[i] = Xm/G
-		R2 = Xm/G
-#		print 'R1[i]',R1[i],'1j',1j,'X1[i]',X1[i],'R2[i]',R2[i],'Xm[i]',Xm[i]
-#		Z[i] = R1[i] + 1j*X1[i] + ((1j*R2[i]*Xm[i])/Srated)/((R2[i]/Srated) + 1j*Xm[i])
-		Z = R1 + 1j*X1 + ((1j*R2*Xm)/Srated)/((R2/Srated) + 1j*Xm)
-#		print 'V1',V1,'np.abs(Z[i])',np.abs(Z[i])
-#		I1[i] = V1/np.abs(Z[i])
-		I1 = V1/np.abs(Z)
-#		I2[i] = 1j*I1[i]*Xm/(R2[i]/Srated + 1j*Xm)
-		I2 = 1j*I1*Xm/(R2/Srated + 1j*Xm)
-#		Im[i] = I1[i] - I2[i]
-		Im = I1 - I2
+        #Equivalent Circuit Components
+#        R1[i] = rhow*(4*a + 2*Lce)*J1*N1/I1prime
+        R1 = rhow*(4*a + 2*Lce)*J1*N1/I1prime
+#        a1[i] = lamda_s*(1 + 3/p) + lamda_d
+        a1 = lamda_s*(1 + 3/p) + lamda_d
+#        b1[i] = lamda_e*Lce
+        b1 = lamda_e*Lce
+#        X1[i] = 8*mu0*np.pi*f*((a1[i]*2*a/q1) + b1[i])*N1**2/p # Leakage Reactance
+        X1 = 8*mu0*np.pi*f*((a1*2*a/q1) + b1)*N1**2/p # Leakage Reactance
+#        Xm[i] = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
+        # print(f,ae,kw,N1**2,tau)
+        Xm = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
+#        R2[i] = Xm/G
+        R2 = Xm/G
+        # print('i',i,'R1',R1,'1j',1j,'X1',X1,'R2',R2,'Xm',Xm)
+#        Z[i] = R1[i] + 1j*X1[i] + ((1j*R2[i]*Xm[i])/Srated)/((R2[i]/Srated) + 1j*Xm[i])
+        # print('R1',R1,'X1',X1,'R2',R2,'Xm',Xm, 'Srated',Srated)
+        # print('R1',R1,'1j*X1',1j*X1,'((1j*R2*Xm)/Srated)/(R2/Srated)',((1j*R2*Xm)/Srated)/(R2/Srated),'1j*Xm',1j*Xm)
+        Z = R1 + 1j*X1 + ((1j*R2*Xm)/Srated)/((R2/Srated) + 1j*Xm)
+#        I1[i] = V1/np.abs(Z[i])
+        I1 = V1/np.abs(Z)
+#        I2[i] = 1j*I1[i]*Xm/(R2[i]/Srated + 1j*Xm)
+        I2 = 1j*I1*Xm/(R2/Srated + 1j*Xm)
+#        Im[i] = I1[i] - I2[i]
+        Im = I1 - I2
 
-		#Actual TLIM Thrust
-#		print 'm:',m, 'I1[i]', I1[i], 'R2[i]',R2[i],'Srated',Srated,'G',G,'Vs',Vs
-#		Fs[i] = (m*np.abs(I1[i])**2*R2[i])/(((1/(Srated*G)**2) + 1)*Vs*Srated)   # Eqn 3.51
-#		Fs[i] = (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated)   # Eqn 3.51
-#		diff[i] = Fs[i] - Fsprime
-		if np.shape(Fs)[0] < i:
-			Fs = np.insert(Fs, i-1, (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated) )   # Eqn 3.51
-			diff = np.insert(diff, i-1, Fs[i-1] - Fsprime )
-		dmin = np.min(np.abs(diff))
-		Pout = Fs*Vr	# Eqn 3.4
-#		Pin = Pout + m*np.abs(I2[i])**2*R2[i] + m*np.abs(I1[i])**2*R1[i]   # Eqn 3.52
-		Pin = Pout + m*np.abs(I2)**2*R2 + m*np.abs(I1)**2*R1   # Eqn 3.52
-		eta = Pout/Pin
-#		PF = np.cos(np.angle(Z[i]))
-		PF = np.cos(np.angle(Z))
-		# print 'Fs:',Fs
-#		print 'Pout:',Pout
-#		print 'Pin:',Pin
-		# print 'eta:',eta
-#		print 'PF:',PF
-#		ncos1[i] = eta*PF
-		ncos1 = eta*PF
-		ncos0 = (ncos0+ncos1[i])/2
-		# ncos0 = (ncos0+ncos1)/2
+        #Actual TLIM Thrust
+#        print 'm:',m, 'I1[i]', I1[i], 'R2[i]',R2[i],'Srated',Srated,'G',G,'Vs',Vs
+#        Fs[i] = (m*np.abs(I1[i])**2*R2[i])/(((1/(Srated*G)**2) + 1)*Vs*Srated)   # Eqn 3.51
+#        Fs[i] = (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated)   # Eqn 3.51
+#        diff[i] = Fs[i] - Fsprime
+        try:
+            Fs[i] = (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated) # Eqn 3.51
+        except IndexError:
+            Fs.append((m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated)) # Eqn 3.51
+        try:
+            diff[i] = Fs[i] - Fsprime
+        except IndexError:
+            diff.append(Fs[i] - Fsprime)
+        dmin = np.min(np.abs(diff))
+        Pout = Fs*Vr    # Eqn 3.4
+#        Pin = Pout + m*np.abs(I2[i])**2*R2[i] + m*np.abs(I1[i])**2*R1[i]   # Eqn 3.52
+        Pin = Pout + m*np.abs(I2)**2*R2 + m*np.abs(I1)**2*R1   # Eqn 3.52
+        eta = Pout/Pin
+#        PF = np.cos(np.angle(Z[i]))
+        PF = np.cos(np.angle(Z))
+        # print 'Fs:',Fs
+#        print 'Pout:',Pout
+#        print 'Pin:',Pin
+        # print 'eta:',eta
+#       print 'PF:',PF
+        # ncos1[i] = eta*PF
+        ncos1[i] = eta*PF
+        ncos0 = (ncos0+ncos1[i])/2
+        # ncos0 = (ncos0+ncos1)/2
 
 
-dmin = np.min(np.abs(diff))
-print dmin
+# print dmin
 
-k = 0
-while dmin != np.abs(diff[k]):
-	k = k + 1
+for k, _ in enumerate(diff):
+	if dmin == np.abs(_):
+		Nc = k         # Number of turns per slot
+		N1 = p*q1*Nc   # Number of turns per phase
+		Fs = Fs[k]     # Estimated thrust based on Nc (N)
+		I1 = I1[k]     # Actual rated stator RMS current (A)
+		break
 
-
-Nc = k         # Number of turns per slot
-N1 = p*q1*Nc   # Number of turns per phase
-Fs = Fs[k]     # Estimated thrust based on Nc (N)
-I1 = I1[k]     # Actual rated stator RMS current (A)
 
 ncos1 = ncos1[k]
 
-A = {	
-	3:	5.8	,
-	4:	5.189,
-	5:	4.62,
-	6:	4.1148,
-	7:	3.66,
-	8:	3.2639,
-	9:	2.9057,
-	10:	2.588,
-	}
+A = {    
+    3:    5.8    ,
+    4:    5.189,
+    5:    4.62,
+    6:    4.1148,
+    7:    3.66,
+    8:    3.2639,
+    9:    2.9057,
+    10:    2.588,
+    }
 
 #gauge = 0
 
@@ -437,107 +445,107 @@ diffmin = np.empty([10,])
 
 #while gauge < 8:
 for gauge in range(3,10):
-	
-#	gauge = gauge + 1
-#	gauge = 5
-	Np = 0
-#	r = 0    # Unused variable
-	wt = 1
-	wtmin = 0
-#	g = 0    # Unused variable
-#	r = 0    # redundant
-	
-	while wt - wtmin > 0.0152:
-			
-#		r = r + 1    # Unused variable
-#		g = g + 1    # Unused variable
-		Dw = A[gauge]	# Diameter of selected copper wire (mm)
-		Np = Np + 1
-		ws = (Dw*10**-3*Np) + 2.2*10**-3	# Eqn 4.18
-		wt = Lambda - ws	# Eqn 4.19
-		Aw = Np*np.pi/4*Dw**2*1e-6
-		As = (10*Nc*Aw)/7
-		hs = As/ws
-		gm = 0.01
-		go = gm + d
-		gamma = (4/np.pi)*(((ws/(2*go))*np.arctan(ws/(2*go))) - np.log(np.sqrt(1 + ((ws/(2*go))**2))))
-		kc = Lambda/(Lambda - gamma*go)
-		ge = kc*go
-		G = 2*mu0*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor for in vacuum
-#		G = 2*mu*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor
-		kw = np.sin(np.pi/(2*m))/(q1*np.sin(np.pi/(2*m*q1)))
-		a = np.pi/2
-		ae = a + ge/2
-		Lce = tau
-		beta1 = 1
-		lamda_s = (hs*(1 + 3*beta1))/(12*ws)
-		lamda_e = (0.3*(3*beta1 - 1))
-		lamda_d = 5*(ge/ws)/(5 + 4*(go/ws))
+    
+#    gauge = gauge + 1
+#    gauge = 5
+    Np = 0
+#    r = 0    # Unused variable
+    wt = 1
+    wtmin = 0
+#    g = 0    # Unused variable
+#    r = 0    # redundant
+    
+    while wt - wtmin > 0.0152:
+            
+#        r = r + 1    # Unused variable
+#        g = g + 1    # Unused variable
+        Dw = A[gauge]    # Diameter of selected copper wire (mm)
+        Np = Np + 1
+        ws = (Dw*10**-3*Np) + 2.2*10**-3    # Eqn 4.18
+        wt = Lambda - ws    # Eqn 4.19
+        Aw = Np*np.pi/4*Dw**2*1e-6
+        As = (10*Nc*Aw)/7
+        hs = As/ws
+        gm = 0.01
+        go = gm + d
+        gamma = (4/np.pi)*(((ws/(2*go))*np.arctan(ws/(2*go))) - np.log(np.sqrt(1 + ((ws/(2*go))**2))))
+        kc = Lambda/(Lambda - gamma*go)
+        ge = kc*go
+        G = 2*mu0*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor for in vacuum
+#        G = 2*mu*f*tau**2/(np.pi*(rhor/d)*ge)     # Goodness factor
+        kw = np.sin(np.pi/(2*m))/(q1*np.sin(np.pi/(2*m*q1)))
+        a = np.pi/2
+        ae = a + ge/2
+        Lce = tau
+        beta1 = 1
+        lamda_s = (hs*(1 + 3*beta1))/(12*ws)
+        lamda_e = (0.3*(3*beta1 - 1))
+        lamda_d = 5*(ge/ws)/(5 + 4*(go/ws))
 
-		# Equivalent Circuit Components
-		R1 = rhow*(4*a + 2*Lce)*J1*N1/I1prime
-		a1 = lamda_s*(1 + 3/p)+lamda_d
-		b1 = lamda_e*Lce
-		X1 = 8*mu0*np.pi*f*((a1*2*a/q1) + b1)*N1**2/p # Leakage Reactance
-		Xm = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
-		R2 = Xm/G
-		Z = R1 + 1j*X1 + (R2/Srated*1j*Xm)/(R2/Srated + 1j*Xm)
-		I1 = V1/np.abs(Z)
-		I2 = 1j*I1*Xm/(R2/Srated + 1j*Xm)
-		Im = I1-I2
-		wtmin = 2*np.sqrt(2)*m*kw*N1*np.abs(Im)*mu0*Lambda/(np.pi*p*ge*btmax)
-		
-		
-		hy = 4*np.sqrt(2)*m*kw*N1*np.abs(Im)*mu0*Ls/(np.pi*np.pi*p*p*ge*bymax)  # Yoke height of stator core
-#		hy = 4*np.sqrt(2)*m*kw*N1*abs(Im)*mu*Ls/(np.pi*np.pi*p*p*ge*bymax)  # Yoke height of stator core
-		para_wires[gauge] = Np
-		slot_width[gauge] = ws 
-		tooth_width[gauge] = wt
-		min_toothwidth[gauge] = wtmin
-		height_slot[gauge] = hs
-		Area_wire[gauge] = Aw
-		Area_slot[gauge] = As
-		Num_c[gauge] = Nc
-		Num_1[gauge] = N1
-		Sta_I[gauge] = I1
-		gap_e[gauge] = ge
-		current_den[gauge] = np.abs(I1)/Aw
-		height_yoke[gauge] = 4*np.sqrt(2)*m*kw*N1*(Im)*mu0*Ls/(np.pi*np.pi*p*p*ge*bymax)
-#		height_yoke[gauge] = 4*np.sqrt(2)*m*kw*N1*(Im)*mu*Ls/(np.pi*np.pi*p*p*ge*bymax)
-		final_thrust[gauge] = (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated)
-		output[gauge] = final_thrust[gauge]*Vr
-		Input[gauge] = output[gauge] + m*np.abs(I2)**2*R2 + m*np.abs(I1)**2*R1
-		efficiency[gauge] = output[gauge]/Input[gauge]
-		difference[gauge] = final_thrust[gauge] - Fsprime
-		diffmin[gauge] = np.min(np.abs(difference))
+        # Equivalent Circuit Components
+        R1 = rhow*(4*a + 2*Lce)*J1*N1/I1prime
+        a1 = lamda_s*(1 + 3/p)+lamda_d
+        b1 = lamda_e*Lce
+        X1 = 8*mu0*np.pi*f*((a1*2*a/q1) + b1)*N1**2/p # Leakage Reactance
+        Xm = (48*mu0*np.pi*f*ae*kw*N1**2*tau)/(np.pi**2*p*ge)  # Magnetizing Reactance
+        R2 = Xm/G
+        Z = R1 + 1j*X1 + (R2/Srated*1j*Xm)/(R2/Srated + 1j*Xm)
+        I1 = V1/np.abs(Z)
+        I2 = 1j*I1*Xm/(R2/Srated + 1j*Xm)
+        Im = I1-I2
+        wtmin = 2*np.sqrt(2)*m*kw*N1*np.abs(Im)*mu0*Lambda/(np.pi*p*ge*btmax)
+        
+        
+        hy = 4*np.sqrt(2)*m*kw*N1*np.abs(Im)*mu0*Ls/(np.pi*np.pi*p*p*ge*bymax)  # Yoke height of stator core
+#        hy = 4*np.sqrt(2)*m*kw*N1*abs(Im)*mu*Ls/(np.pi*np.pi*p*p*ge*bymax)  # Yoke height of stator core
+        para_wires[gauge] = Np
+        slot_width[gauge] = ws 
+        tooth_width[gauge] = wt
+        min_toothwidth[gauge] = wtmin
+        height_slot[gauge] = hs
+        Area_wire[gauge] = Aw
+        Area_slot[gauge] = As
+        Num_c[gauge] = Nc
+        Num_1[gauge] = N1
+        Sta_I[gauge] = I1
+        gap_e[gauge] = ge
+        current_den[gauge] = np.abs(I1)/Aw
+        height_yoke[gauge] = 4*np.sqrt(2)*m*kw*N1*(Im)*mu0*Ls/(np.pi*np.pi*p*p*ge*bymax)
+#        height_yoke[gauge] = 4*np.sqrt(2)*m*kw*N1*(Im)*mu*Ls/(np.pi*np.pi*p*p*ge*bymax)
+        final_thrust[gauge] = (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated)
+        output[gauge] = final_thrust[gauge]*Vr
+        Input[gauge] = output[gauge] + m*np.abs(I2)**2*R2 + m*np.abs(I1)**2*R1
+        efficiency[gauge] = output[gauge]/Input[gauge]
+        difference[gauge] = final_thrust[gauge] - Fsprime
+        diffmin[gauge] = np.min(np.abs(difference))
 '''
-		np.insert(para_wires, gauge, Np )
-		np.insert(slot_width, gauge, ws )
-		np.insert(tooth_width, gauge, wt )
-		np.insert(min_toothwidth, gauge, wtmin )
-		np.insert(height_slot, gauge, hs )
-		np.insert(Area_wire, gauge, Aw )
-		np.insert(Area_slot, gauge, As )
-		np.insert(Num_c, gauge, Nc )
-		np.insert(Num_1, gauge, N1 )
-		np.insert(Sta_I, gauge, I1 )
-		np.insert(gap_e, gauge, ge )
-		np.insert(current_den, gauge, np.abs(I1)/Aw )
-		np.insert(height_yoke, gauge, 4*np.sqrt(2)*m*kw*N1*(Im)*mu0*Ls/(np.pi*np.pi*p*p*ge*bymax) )
-#		height_yoke[gauge] = 4*np.sqrt(2)*m*kw*N1*(Im)*mu*Ls/(np.pi*np.pi*p*p*ge*bymax)
-		np.insert(final_thrust, gauge,  (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated) )
-		np.insert(output, gauge,  final_thrust[gauge]*Vr )
-		np.insert(Input, gauge,  output[gauge] + m*np.abs(I2)**2*R2 + m*np.abs(I1)**2*R1 )
-		np.insert(efficiency, gauge, output[gauge]/input[gauge] )
-		np.insert(difference, gauge, final_thrust[gauge] - Fsprime )
-		np.insert(diffmin, gauge, np.min(np.abs(difference)) )
+        np.insert(para_wires, gauge, Np )
+        np.insert(slot_width, gauge, ws )
+        np.insert(tooth_width, gauge, wt )
+        np.insert(min_toothwidth, gauge, wtmin )
+        np.insert(height_slot, gauge, hs )
+        np.insert(Area_wire, gauge, Aw )
+        np.insert(Area_slot, gauge, As )
+        np.insert(Num_c, gauge, Nc )
+        np.insert(Num_1, gauge, N1 )
+        np.insert(Sta_I, gauge, I1 )
+        np.insert(gap_e, gauge, ge )
+        np.insert(current_den, gauge, np.abs(I1)/Aw )
+        np.insert(height_yoke, gauge, 4*np.sqrt(2)*m*kw*N1*(Im)*mu0*Ls/(np.pi*np.pi*p*p*ge*bymax) )
+#        height_yoke[gauge] = 4*np.sqrt(2)*m*kw*N1*(Im)*mu*Ls/(np.pi*np.pi*p*p*ge*bymax)
+        np.insert(final_thrust, gauge,  (m*np.abs(I1)**2*R2)/(((1/(Srated*G)**2) + 1)*Vs*Srated) )
+        np.insert(output, gauge,  final_thrust[gauge]*Vr )
+        np.insert(Input, gauge,  output[gauge] + m*np.abs(I2)**2*R2 + m*np.abs(I1)**2*R1 )
+        np.insert(efficiency, gauge, output[gauge]/input[gauge] )
+        np.insert(difference, gauge, final_thrust[gauge] - Fsprime )
+        np.insert(diffmin, gauge, np.min(np.abs(difference)) )
 '''
 
 kk = np.min(diffmin)
 jj = 1
 
 while kk != np.abs(diffmin(jj)):
-	jj = jj + 1
+    jj = jj + 1
 
 
 
@@ -585,7 +593,7 @@ Vyoke = Ls*Ws*hy                   # Volume of iron required for stator yoke
 Vtooth = Ws*wt*hs                  # Volume of iron required for stator tooth
 Vteeth = m*p*q1*Ws*wt*hs           # Volume of iron required for stator teeth
 Viron = Ws*(Ls*hy + m*p*q1*wt*hs)  # Total volume of iron required
-Vcopper = Tlw*np.pi*(Dw*10**-3/2)**2	# Volume of copper used (m**3)
+Vcopper = Tlw*np.pi*(Dw*10**-3/2)**2    # Volume of copper used (m**3)
 
 Wiron = rhoiron*Viron              # Total weight of iron required
 Wcopper = rhocopper*Vcopper        # Total weight of copper required
@@ -595,8 +603,8 @@ Wstator = Wiron + Wcopper          # Total weight of stator
 ## Generate table of outputs 
 
 table = [
-	#VariableNames 
-	[
+    #VariableNames 
+    [
             'Rated Slip'
             'Yoke density'
             'Tooth density'
@@ -628,148 +636,148 @@ table = [
             'Total weight of copper wire'
             'Iron core weight'
             'Total weight of one stator unit'
-						],
+                        ],
 
-	# Variable
-	[   
-	    'Srated'
-	    'bymax'
-	    'btmax'
-	    'Ws'
-	    'Vs'
-	    'Vr'
-	    'p'
-	    'tau'
-	    'lamda'
-	    'Ls'
-	    'Fsprime'
-	    'Nc'
-	    'N1'
-	    'gauge'
-	    'Dw'
-	    'Np'
-	    'ws'
-	    'wt'
-	    'wtmin'
-	    'hs'
-	    'hy'
-	    'Fs(Vr)'
-	    'Pout(Vr)'
-	    'np.pin(Vr)'
-	    'eta(Vr)'
-	    'I1(Vr)'
-	    'J1'
-	    'Tlw'
-	    'Wcopper'
-	    'Wiron'
-	    'Wstator'
-			],
+    # Variable
+    [   
+        'Srated'
+        'bymax'
+        'btmax'
+        'Ws'
+        'Vs'
+        'Vr'
+        'p'
+        'tau'
+        'lamda'
+        'Ls'
+        'Fsprime'
+        'Nc'
+        'N1'
+        'gauge'
+        'Dw'
+        'Np'
+        'ws'
+        'wt'
+        'wtmin'
+        'hs'
+        'hy'
+        'Fs(Vr)'
+        'Pout(Vr)'
+        'np.pin(Vr)'
+        'eta(Vr)'
+        'I1(Vr)'
+        'J1'
+        'Tlw'
+        'Wcopper'
+        'Wiron'
+        'Wstator'
+            ],
 
-	#Value	
-	[	
-		Srated,
-		bymax,
-		btmax,
-		Ws,
-		Vs,
-		Vr,
-		p,
-		tau,
-		Lambda,
-		Ls,
-		Fsprime,
-		Nc,
-		N1,
-		gauge,
-		Dw,
-		Np,
-		ws,
-		wt,
-		wtmin,
-		hs,
-		hy,
-		Force(Vr),
-		out_pow(Vr),
-		in_pow(Vr),
-		eff(Vr),
-		I1,
-		J1,
-		Tlw,
-		Wcopper,
-		Wiron,
-		Wstator
-		    	],
+    #Value    
+    [    
+        Srated,
+        bymax,
+        btmax,
+        Ws,
+        Vs,
+        Vr,
+        p,
+        tau,
+        Lambda,
+        Ls,
+        Fsprime,
+        Nc,
+        N1,
+        gauge,
+        Dw,
+        Np,
+        ws,
+        wt,
+        wtmin,
+        hs,
+        hy,
+        Force(Vr),
+        out_pow(Vr),
+        in_pow(Vr),
+        eff(Vr),
+        I1,
+        J1,
+        Tlw,
+        Wcopper,
+        Wiron,
+        Wstator
+                ],
 
-	#Units
-	[   
-		'-'
-		'Tesla'
-		'Tesla'
-		'm'
-		'm/s'
-		'm/s'
-		'-'
-		'm'
-		'm'
-		'm'
-		'N'
-		'-'
-		'-'
-		'AWG'
-		'mm'
-		'-'
-		'm'
-		'm'
-		'm'
-		'm'
-		'm'
-		'N'
-		'W'
-		'W'
-		'-'
-		'A'
-		'A/m**2'
-		'm'
-		'kg'
-		'kg'
-		'kg'
-			],
+    #Units
+    [   
+        '-'
+        'Tesla'
+        'Tesla'
+        'm'
+        'm/s'
+        'm/s'
+        '-'
+        'm'
+        'm'
+        'm'
+        'N'
+        '-'
+        '-'
+        'AWG'
+        'mm'
+        '-'
+        'm'
+        'm'
+        'm'
+        'm'
+        'm'
+        'N'
+        'W'
+        'W'
+        '-'
+        'A'
+        'A/m**2'
+        'm'
+        'kg'
+        'kg'
+        'kg'
+            ],
 
-	#Dependencies
-	[   
-		'Design Parameter/Constant'
-		'Design Parameter/Constant'
-		'Design Parameter/Constant'
-		'Design Parameter/Constant'
-		'Vr,Srated'
-		'Design Parameter/Constant'
-		'Design Parameter/Constant'
-		'Vs,f'
-		'tau,m,q1'
-		'p,tau'
-		'Design Parameter/Constant'
-		'k'
-		'p,q1,Nc'
-		'(see loop counter)'
-		'gauge'
-		'(see loop counter)'
-		'Dw,Np'
-		'Lambda,ws'
-		'm,kw,N1,Im,mu0,Lambda,p,ge,btmax'
-		'Asws'
-		'm,kw,N1,Im,mu0,Ls,np.pi,p,ge,bymax'
-		'm,i1[e],R2,slip,G,vel_sta'
-		'Force[e],vel_rot[e]'
-		'out_pow[e],m,i2[e],R2,m,i1[e],R1'
-		'out_pow[e],in_pow[e]'
-		'V1,Z[i]'
-		'Design Parameter/Constant'
-		'm,Np,lw'
-		'rhocopper,Vcopper'
-		'rhoiron,Viron'
-		'Wcopper,Wiron'
-        		],
-			]
+    #Dependencies
+    [   
+        'Design Parameter/Constant'
+        'Design Parameter/Constant'
+        'Design Parameter/Constant'
+        'Design Parameter/Constant'
+        'Vr,Srated'
+        'Design Parameter/Constant'
+        'Design Parameter/Constant'
+        'Vs,f'
+        'tau,m,q1'
+        'p,tau'
+        'Design Parameter/Constant'
+        'k'
+        'p,q1,Nc'
+        '(see loop counter)'
+        'gauge'
+        '(see loop counter)'
+        'Dw,Np'
+        'Lambda,ws'
+        'm,kw,N1,Im,mu0,Lambda,p,ge,btmax'
+        'Asws'
+        'm,kw,N1,Im,mu0,Ls,np.pi,p,ge,bymax'
+        'm,i1[e],R2,slip,G,vel_sta'
+        'Force[e],vel_rot[e]'
+        'out_pow[e],m,i2[e],R2,m,i1[e],R1'
+        'out_pow[e],in_pow[e]'
+        'V1,Z[i]'
+        'Design Parameter/Constant'
+        'm,Np,lw'
+        'rhocopper,Vcopper'
+        'rhoiron,Viron'
+        'Wcopper,Wiron'
+                ],
+            ]
 
 
 import csv
@@ -860,51 +868,51 @@ operatingno = 13   # Set Design Case no.
 switch operatingno
     
     case 10 # 
-		factor = .001
-		Vline = Vline * factor
-		f = f * factor
-		Vr = Vr * factor
+        factor = .001
+        Vline = Vline * factor
+        f = f * factor
+        Vr = Vr * factor
 
-	case 11 # 
-		factor = .1
-		Vline = Vline * factor
-		f = f * factor
-		Vr = Vr * factor
-		
-	case 12 #
-		factor = .2
-		Vline = Vline * factor
-		f = f * factor
-		Vr = Vr * factor
-		
-	case 13 #
-		factor = .3
-		Vline = Vline * factor
-		f = f * factor
-		Vr = Vr * factor
-		
-	case 14 #
-		factor = .4
-		Vline = Vline * factor
-		f = f * factor
-		Vr = Vr * factor
-		
-	case 19 #
-		factor = .9
-		Vline = Vline * factor
-		f = f * factor
-		Vr = Vr * factor
+    case 11 # 
+        factor = .1
+        Vline = Vline * factor
+        f = f * factor
+        Vr = Vr * factor
+        
+    case 12 #
+        factor = .2
+        Vline = Vline * factor
+        f = f * factor
+        Vr = Vr * factor
+        
+    case 13 #
+        factor = .3
+        Vline = Vline * factor
+        f = f * factor
+        Vr = Vr * factor
+        
+    case 14 #
+        factor = .4
+        Vline = Vline * factor
+        f = f * factor
+        Vr = Vr * factor
+        
+    case 19 #
+        factor = .9
+        Vline = Vline * factor
+        f = f * factor
+        Vr = Vr * factor
         
 end
-		
+        
 ## Calculate output performance per design case and operating conditions
 
 # Data from the PCP design procedure
 V1 = Vline/np.sqrt(3)         # Rated primary RMS - Eqn 4.16
-Vs = Vr/(1 - Srated)       # Sychronous velocity (m/s)	**GOOD**
-tau = Vs/(2*f)             # Pole np.pitch	**GOOD**
+Vs = Vr/(1 - Srated)       # Sychronous velocity (m/s)    **GOOD**
+tau = Vs/(2*f)             # Pole np.pitch    **GOOD**
 Lambda = tau/(m*q1)        # Slot np.pitch    **GOOD**
-Ls = p*tau                 # Stator Length	**GOOD**
+Ls = p*tau                 # Stator Length    **GOOD**
 
 Sta_I[gauge] = I1
 current_den[gauge] = abs(I1)/Aw

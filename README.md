@@ -2,7 +2,7 @@
 
 > Single-sided Linear Induction Motor
 
-A python module for a Single-sided Linear Induction Motor (SLIM) designer, based on thesis work by [Sarveswra Prasad Bhamidi](https://mospace.umsystem.edu/xmlui/handle/10355/4308)
+A python module for a Single-sided Linear Induction Motor (SLIM) designer, based on thesis work by Sarveswara Prasad Bhamidi.
 
 ## Usage
 
@@ -22,10 +22,10 @@ Change 'tableno' to suit the corresponding design case, e.g., a 'tableno' of 54 
 
 ## Acknowledgements
 
-Simulation constraints and parameters used for rPod use case and analysis, designed by Keith Stormo (stormoconsulting@moscow.com)
+Thesis paper author, Sarveswara Prasad Bhamidi
+https://mospace.umsystem.edu/xmlui/handle/10355/4308
 
-Thesis paper author and source code originator, Sarveswara Prasad Bhamidi
-https://mospace.umsystem.edu/xmlui/bitstream/handle/10355/4308/research.pdf
+Example design parameters suggested by Keith Stormo (stormoconsulting@moscow.com)
 
 ## Contribute
 
